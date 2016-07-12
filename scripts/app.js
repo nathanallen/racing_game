@@ -54,19 +54,24 @@ $(document).ready(function() {
     });
     this.$track = $(opts.selector || "#track");
     this.length = opts.length || 10;
-    this.move_amount = opts.move_amount || 40;
+    this.move_amount = opts.move_amount || 9;
   }
   Track.prototype = {
     render: function(){
+      var player_height = Math.round(100/this.players.length) + "vh";
+      var player_dimensions = {
+        "height": player_height,
+        "width": player_height
+      };
       this.$track.html(
         this.players.map(function(player){
-          return player.$el;
+          return player.$el.css(player_dimensions);
         })
       );
     },
     move: function(player){
       player.move();
-      player.$el.css("left", player.position * this.move_amount);
+      player.$el.css("left", player.position * this.move_amount + "vw");
     },
     reset: function(){
       this.players.forEach(function(player){
