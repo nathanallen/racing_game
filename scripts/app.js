@@ -1,8 +1,17 @@
 $(document).ready(function() {
 
-  var ZERO_CHAR_CODE = 48;
-  var ONE_CHAR_CODE = 49;
-  var FIVE_CHAR_CODE = 53;
+  var CHARCODES = {
+    "0": 48,
+    "1": 49,
+    "2": 50,
+    "3": 51,
+    "4": 52,
+    "5": 53,
+    "6": 54,
+    "7": 55,
+    "8": 56,
+    "9": 57
+  }
 
   function Game(opts){
     this.track = new Track(opts.players_data, opts.track_data);
@@ -90,7 +99,8 @@ $(document).ready(function() {
 
   function Player(opts){
     this.name = opts.name;
-    this.charCode = opts.charCode;
+    this.key = opts.key;
+    this.charCode = CHARCODES[this.key];
     this.position = 0;
     this.$el = PlayerView.render(this);
   }
@@ -107,15 +117,15 @@ $(document).ready(function() {
     track_data: {},
     players_data: [
       {
-        charCode: ZERO_CHAR_CODE,
+        key: "0",
         name: "Hobbes"
       },
       {
-        charCode: ONE_CHAR_CODE,
+        key: "1",
         name: "Calvin"
       },
       {
-        charCode: FIVE_CHAR_CODE,
+        key: "5",
         name: "Pinky"
       }
     ]
