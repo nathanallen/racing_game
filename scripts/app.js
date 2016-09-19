@@ -70,7 +70,8 @@ $(document).ready(function() {
       var player_height = Math.round(100/this.players.length) + "vh";
       var player_dimensions = {
         "height": player_height,
-        "width": player_height
+        "width": player_height,
+        "left": 0 // start position
       };
       this.$track.html(
         this.players.map(function(player){
