@@ -92,7 +92,11 @@ $(document).ready(function() {
 
   function PlayerView(){}
   PlayerView.render = function(player){
-    var pv = $("<div>",{ class: "player", text: player.name});
+    var pv = $("<div>", {
+      class: "player",
+      text: player.name,
+      css: { backgroundColor: player.color }
+    });
     player.$el = pv;
     return pv;
   }
@@ -102,6 +106,7 @@ $(document).ready(function() {
     this.key = opts.key;
     this.charCode = CHARCODES[this.key];
     this.position = 0;
+    this.color = opts.color || "none";
     this.$el = PlayerView.render(this);
   }
   Player.prototype = {
@@ -118,15 +123,33 @@ $(document).ready(function() {
     players_data: [
       {
         key: "0",
-        name: "Hobbes"
+        name: "Zero",
+        color: "red"
       },
       {
         key: "1",
-        name: "Calvin"
+        name: "One",
+        color: "orange"
+      },
+      {
+        key: "2",
+        name: "Two",
+        color: "green"
+      },
+      {
+        key: "3",
+        name: "Three",
+        color: "blue"
+      },
+      {
+        key: "4",
+        name: "Four",
+        color: "teal"
       },
       {
         key: "5",
-        name: "Pinky"
+        name: "Five",
+        color: "purple"
       }
     ]
   });
