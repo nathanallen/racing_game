@@ -1,7 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  color: #333;
-  font-family: Helvetica, Arial, sans-serif;
-  background-color: skyblue; /* Sanity Check! */
+  margin: 0;
 }
 
 h1 {
